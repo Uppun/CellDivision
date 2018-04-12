@@ -11,7 +11,6 @@ export default class Cell extends React.Component {
     textAreaRef = null;
 
     handleSplit = (event, data) => {
-        event.preventDefault();
         CellActions.split(data.index, data.direction);
     }
 
@@ -47,15 +46,14 @@ export default class Cell extends React.Component {
     render() {
 
         const {cells, index, modalControl} = this.props;
-        console.log(cells)
         const cell = cells[index];
         const flex = {
-            flexGrow: this.props.flex,
+            flexGrow: this.props.flex ? this.props.flex : 1,
         }
 
         if(cell.leftChild) {
             return (
-                <div className={cell.splitDirection} ref={node => {
+                <div className={cell.splitDirection} style={flex} ref={node => {
                     this.cellRef = node;
                 }}>
                     <Cell cells={cells} index={cell.leftChild} flex={cell.leftFlex} modalControl={modalControl}/>
