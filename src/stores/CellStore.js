@@ -9,7 +9,6 @@ class CellStore extends ReduceStore {
 
     getInitialState() {
         const startingState = JSON.parse(localStorage.getItem('cells'));
-        console.log(startingState);
         if(!startingState) {
             const parentCell = {text: "This is a cell", parent: null, leftChild: null, rightChild: null, splitDirection: null, leftFlex: 1, rightFlex: 1};
             const cellBST = [parentCell];

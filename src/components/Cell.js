@@ -25,8 +25,8 @@ export default class Cell extends React.Component {
         const CB = (e) => {
             
             let percent = direction === 'side' ? (e.clientX - cellInfo.left) / leftOffset : (e.clientY - cellInfo.top) / topOffset;
-            if (percent < 0) percent = 0;
-            if (percent > 1) percent = 1;
+            if (percent <= 0) percent = 0.001;
+            if (percent > 1) percent = 0.999;
 
             CellActions.drag(this.props.index, percent, 1-percent);
         }
