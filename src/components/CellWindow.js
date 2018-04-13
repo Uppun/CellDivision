@@ -37,7 +37,7 @@ class CellWindow extends React.Component {
         
         return(
             <div className='fullContainer'>
-                <div className = 'deleteModal' style={this.state}>
+                <div className = 'deleteModal' style={this.state} onClick={this.updateVis}>
                     <div className='modalContent'>
                         <span className='close' onClick={this.updateVis}>&times;</span>
                         <p>{this.state.deleteIndex === 0 ? 'Error: Can not delete root cell' : 'Are you sure you want to delete this cell?'}</p>
